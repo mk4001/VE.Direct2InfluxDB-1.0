@@ -5,7 +5,6 @@
 */
 
 #include <WiFi.h>
-//#include <HardwareSerial.h>
 #include <InfluxDbClient.h>
 #include <InfluxDbCloud.h>
 
