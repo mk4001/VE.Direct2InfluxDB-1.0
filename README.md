@@ -17,3 +17,11 @@ Detailed documentation of the fields, their format and content is gathered here:
 
 https://www.victronenergy.com/upload/documents/VE.Direct-Protocol-3.33.pdf
 
+Once the record has been captured on the ESP32, it is necessary to parse the fields and collect the data of what we need before sending them to InfluxDB.2
+
+It's easy to create a free account on InfluxDB in the cloud, while for the more daring, you can download the entire suite needed for on-premise installation for a Raspberry PI for free.
+
+You can start directly in the Cloud from here:
+
+https://cloud2.influxdata.com/signup
+
