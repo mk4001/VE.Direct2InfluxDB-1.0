@@ -25,3 +25,4 @@ You can start directly in the Cloud from here:
 
 https://cloud2.influxdata.com/signup
 
+Once logged into InfluxDB, you have to create a new Bucket (in short, a DB) and related Token which you then have to copy into the code attached here together with the ID of your organization. Easy.
