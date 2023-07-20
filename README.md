@@ -26,3 +26,8 @@ You can start directly in the Cloud from here:
 https://cloud2.influxdata.com/signup
 
 Once logged into InfluxDB, you have to create a new Bucket (in short, a DB) and related Token which you then have to copy into the code attached here together with the ID of your organization. Easy.
+
+When your Bucket is finally full of data you can decide to create a Dashbouard on Grafana (always in the cloud, always free)
+
+https://grafana.com/auth/sign-up/create-user?pg=hp&plcmt=hero-btn1&cta=create-free-account
+
