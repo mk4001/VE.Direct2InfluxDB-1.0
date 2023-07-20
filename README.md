@@ -37,3 +37,4 @@ With a little imagination and above all practice, you can even create dashboards
 
 ![image2](https://github.com/mk4001/VE.Direct2InfluxDB/assets/50479511/179841d6-7990-4e45-8d7f-5db96ba6c5a7)
 
+the obviously "cool" thing about this is that you can consult the data of your Victron Energy devices quickly and easily from anywhere and customize them as you like.
