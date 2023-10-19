@@ -1,5 +1,5 @@
 # VE.Direct2InfluxDB
-Victron Energy VE.Direct UART data output to InfluxDB.2 using Espressif ESP32
+Victron Energy VE.Direct UART data output to InfluxDB.2 using Espressif ESP32 (based on Arduino platfrom)
 
 The idea of untying the Smart Solar MPPT 75/15 by Victron Energy from the BLE APP of the smartphone and being able to bring the data to the cloud on InfluxDB (even on Premise is fine anyway) led me to create this project.
 
