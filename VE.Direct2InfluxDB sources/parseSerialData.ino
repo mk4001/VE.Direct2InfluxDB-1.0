@@ -105,7 +105,7 @@ void parseSerialData(String data) {
 
   //Maximum power yesterday (W)
   else if (field.equals("H23")) {
-    float power = value.toFloat() / 1000;
+    float power = value.toFloat();
     point.addField("Max_pw_yesterday", power);
   }
 
