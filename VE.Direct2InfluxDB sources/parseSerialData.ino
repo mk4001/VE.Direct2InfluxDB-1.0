@@ -12,11 +12,8 @@ void parseSerialData(String data) {
   String field = data.substring(0, tabPos);
   String value = data.substring(tabPos + 1);
 
-/* DEBUG ONLY
-  Serial.print(field);
-  Serial.println("-" + value);
-  */
-
+//Serial.print(field);  Serial.println("-"+value); // DEBUG ONLY
+  
   //Main or channel 1 (battery) voltage (mV)
   if (field.equals("V")) {
     float voltage = value.toFloat() / 1000;
@@ -42,26 +39,26 @@ void parseSerialData(String data) {
 
   //State of Operation
   else if (field.equals("CS")) {
-    float state = value.toFloat();
-    point.addField("Operation_state", state);
+    //float state = value.toFloat();
+    point.addField("Operation_state", value);
   }
 
   //Tracker operation mode
   else if (field.equals("MPPT")) {
-    float mppt = value.toFloat();
-    point.addField("Tracker_mode", mppt);
+    //float mppt = value.toFloat();
+    point.addField("Tracker_mode", value);
   }
 
   //Off reason
   else if (field.equals("OR")) {
-    float off = value.toFloat();
-    point.addField("Off_reason", off);
+    //float off = value.toFloat();
+    point.addField("Off_reason", value);
   }
 
   //Error code
   else if (field.equals("ERR")) {
-    float err = value.toFloat();
-    point.addField("Error_code", err);
+    //float err = value.toFloat();
+    point.addField("Error_code", value);
   }
 
   //Load output state (ON/OFF)
@@ -93,8 +90,8 @@ void parseSerialData(String data) {
 
   //Maximum power today (W)
   else if (field.equals("H21")) {
-    float power = value.toFloat();
-    point.addField("Max_pw_today", power);
+    //float power = value.toFloat();
+    point.addField("Max_pw_today", value);
   }
 
   //Yield yesterday (0.01 kWh)
@@ -105,8 +102,8 @@ void parseSerialData(String data) {
 
   //Maximum power yesterday (W)
   else if (field.equals("H23")) {
-    float power = value.toFloat();
-    point.addField("Max_pw_yesterday", power);
+    //float power = value.toFloat();
+    point.addField("Max_pw_yesterday", value);
   }
 
   else if (field.equals("Checksum")) {
