@@ -12,15 +12,16 @@ void parseSerialData(String data) {
   String field = data.substring(0, tabPos);
   String value = data.substring(tabPos + 1);
 
-//Serial.print(field);  Serial.println("-"+value); // DEBUG ONLY
-  
+  //Serial.print(field);  Serial.println("-"+value); // DEBUG ONLY
+
   //Main or channel 1 (battery) voltage (mV)
   if (field.equals("V")) {
     float voltage = value.toFloat() / 1000;
     point.addField("Battery_voltage", voltage);
+  }
 
-    //Main or channel 1 battery current (mA)
-  } else if (field.equals("I")) {
+  //Main or channel 1 battery current (mA)
+  else if (field.equals("I")) {
     float current = value.toFloat() / 1000;
     point.addField("Battery_current", current);
   }
@@ -39,26 +40,26 @@ void parseSerialData(String data) {
 
   //State of Operation
   else if (field.equals("CS")) {
-    //float state = value.toFloat();
-    point.addField("Operation_state", value);
+    float state = value.toFloat();
+    point.addField("Operation_state", state);
   }
 
   //Tracker operation mode
   else if (field.equals("MPPT")) {
-    //float mppt = value.toFloat();
-    point.addField("Tracker_mode", value);
+    float mppt = value.toFloat();
+    point.addField("Tracker_mode", mppt);
   }
 
   //Off reason
   else if (field.equals("OR")) {
-    //float off = value.toFloat();
-    point.addField("Off_reason", value);
+    float off = value.toFloat();
+    point.addField("Off_reason", off);
   }
 
   //Error code
   else if (field.equals("ERR")) {
-    //float err = value.toFloat();
-    point.addField("Error_code", value);
+    float err = value.toFloat();
+    point.addField("Error_code", err);
   }
 
   //Load output state (ON/OFF)
@@ -90,8 +91,8 @@ void parseSerialData(String data) {
 
   //Maximum power today (W)
   else if (field.equals("H21")) {
-    //float power = value.toFloat();
-    point.addField("Max_pw_today", value);
+    float power = value.toFloat();
+    point.addField("Max_pw_today", power);
   }
 
   //Yield yesterday (0.01 kWh)
@@ -102,8 +103,8 @@ void parseSerialData(String data) {
 
   //Maximum power yesterday (W)
   else if (field.equals("H23")) {
-    //float power = value.toFloat();
-    point.addField("Max_pw_yesterday", value);
+    float power = value.toFloat();
+    point.addField("Max_pw_yesterday", power);
   }
 
   else if (field.equals("Checksum")) {
