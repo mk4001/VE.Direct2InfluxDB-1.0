@@ -36,13 +36,13 @@ void setup() {
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
-    Serial.println("Connecting to WiFi...");
+    Serial.print(".");
   }
 
   Serial.println("Connected to WiFi");
 
   // Initialize ERP32 Serial2 port @19200 baud (VE.Direct port default rate)
-  SERIAL_PORT.begin(19200);
+  SERIAL_PORT.begin(19200, SERIAL_8N1);
 
 
   // Accurate time is necessary for certificate validation and writing in batches
@@ -64,6 +64,10 @@ void setup() {
 
 void loop() {
 
+  if (WiFi.status() != WL_CONNECTED) {
+    ESP.restart();
+  }
+  
   if (SERIAL_PORT.available()) {
     String message = SERIAL_PORT.readStringUntil('\n');
 
