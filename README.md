@@ -31,7 +31,7 @@ When your Bucket is finally full of data you can decide to create a wonderful Da
 
 https://grafana.com/auth/sign-up/create-user?pg=hp&plcmt=hero-btn1&cta=create-free-account
 
-With a little imagination and above all practice, you can even create dashboards like these:
+With a little imagination and above all practice, you can even create dashboards like this:
 
 ![image1](https://github.com/mk4001/VE.Direct2InfluxDB/blob/6319bbf4189262424499b21e297fc7bacbad50cf/Screenshot%202023-11-22%20at%2013.58.06.png)
 
