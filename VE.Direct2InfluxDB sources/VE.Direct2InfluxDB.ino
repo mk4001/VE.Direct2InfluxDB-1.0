@@ -4,13 +4,9 @@
   based on ESP32 Wroom
 */
 
-#include <WiFi.h>
+#include <WiFiManager.h>
 #include <InfluxDbClient.h>
 #include <InfluxDbCloud.h>
-
-// WiFi credentials
-const char* ssid = "Your WiFi SSID here";
-const char* password = "Your WiFi pwd here";
 
 //Define Seria port #2 PIN 16(RX) - 17(TX - not used)
 #define SERIAL_PORT Serial2
@@ -32,14 +28,21 @@ Point point("SmartSolar");
 void setup() {
   Serial.begin(115200);
 
-  // WiFi begin
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(1000);
-    Serial.print(".");
-  }
+  //WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
+  WiFiManager wm;
 
-  Serial.println("Connected to WiFi");
+  bool res;
+  // res = wm.autoConnect(); // auto generated AP name from chipid
+  // res = wm.autoConnect("AutoConnectAP"); // anonymous ap
+  res = wm.autoConnect("AutoConnectAP", "password");  // password protected ap
+
+  if (!res) {
+    Serial.println("Failed to connect");
+    // ESP.restart();
+  } else {
+    //if you get here you have connected to the WiFi
+    Serial.println("connected...yeey :)");
+  }
 
   // Initialize ERP32 Serial2 port @19200 baud (VE.Direct port default rate)
   SERIAL_PORT.begin(19200, SERIAL_8N1);
@@ -67,15 +70,14 @@ void loop() {
   if (WiFi.status() != WL_CONNECTED) {
     ESP.restart();
   }
-  
-  if (SERIAL_PORT.available()) {
-    String message = SERIAL_PORT.readStringUntil('\n');
 
-    /* DEBUG ONLY
-    Serial.print("String: |");
-    Serial.print(message);
-    Serial.println("|");
-*/
+  if (SERIAL_PORT.available()) {
+    String message = SERIAL_PORT.readStringUntil('\n');  //production
+
+    // DEBUG Only
+    //Serial.print("String: |"); Serial.print(message); Serial.println("|");
+
+
     message.trim();
 
     parseSerialData(message);
